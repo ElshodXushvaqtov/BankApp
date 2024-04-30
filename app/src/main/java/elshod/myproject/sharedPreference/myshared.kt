@@ -1,2 +1,0 @@
-package elshod.myproject.sharedPreference
-
