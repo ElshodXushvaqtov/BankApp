@@ -15,16 +15,21 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import elshod.myproject.R
+import kotlinx.coroutines.delay
+
 @SuppressLint("StaticFieldLeak")
-lateinit var context : Context
+lateinit var context: Context
+
 @Composable
-fun SplashScreen(){
+fun SplashScreen(navHostController: NavHostController) {
     val lottieComp by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.banksplash))
     val isPlaying by remember {
         mutableStateOf(true)
@@ -43,6 +48,7 @@ fun SplashScreen(){
         )
     }
     LaunchedEffect(key1 = progress) {
-
+        delay(3500)
+        navHostController.navigate("otp_screen")
     }
 }
