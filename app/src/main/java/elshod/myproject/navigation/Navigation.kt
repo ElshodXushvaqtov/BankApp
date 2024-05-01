@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import elshod.myproject.AddCardScreen
-import elshod.myproject.CardsScreen
+import elshod.myproject.screens.AddCardScreen
+import elshod.myproject.screens.CardsScreen
 import elshod.myproject.screens.OtpView
 import elshod.myproject.screens.SplashScreen
 
