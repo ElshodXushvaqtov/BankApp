@@ -52,6 +52,10 @@ fun SplashScreen(navHostController: NavHostController) {
     }
     LaunchedEffect(key1 = progress) {
         delay(3500)
-        navHostController.navigate("otp_screen")
+        navHostController.navigate("otp_screen") {
+            popUpTo("splash_screen") {
+                inclusive = true
+            }
+        }
     }
 }
