@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val navController = rememberNavController()
-                    Navigation(navController = navController)
+                    Navigation(navHostController = navController)
                 }
             }
         }

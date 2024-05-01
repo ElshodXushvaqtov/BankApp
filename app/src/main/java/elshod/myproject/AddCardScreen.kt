@@ -32,12 +32,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import elshod.myproject.items.formatNumber
 
 
-@Preview(showBackground = true)
 @Composable
-fun AddCardScreen() {
+fun AddCardScreen(navHostController: NavHostController) {
     var carnumber by remember {
         mutableStateOf("")
     }
@@ -90,6 +90,7 @@ fun AddCardScreen() {
         }
         Button(
             onClick = {
+                navHostController.navigate("cards_screen")
             },
             modifier = Modifier
                 .padding(horizontal = 32.dp)

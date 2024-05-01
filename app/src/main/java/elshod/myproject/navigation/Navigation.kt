@@ -4,26 +4,31 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import elshod.myproject.HomeScreen
+import elshod.myproject.AddCardScreen
+import elshod.myproject.CardsScreen
 import elshod.myproject.screens.OtpView
 import elshod.myproject.screens.SplashScreen
 
 
 @Composable
-fun Navigation(navController: NavHostController) {
+fun Navigation(navHostController: NavHostController) {
 
 
-    NavHost(navController = navController, startDestination = Screens.SplashScreen.route) {
+    NavHost(navController = navHostController, startDestination = Screens.SplashScreen.route) {
         composable(route = Screens.SplashScreen.route) {
-            SplashScreen(navHostController = navController)
+            SplashScreen(navHostController = navHostController)
         }
 
         composable(route = Screens.OTPScreen.route) {
-            OtpView(navHostController = navController)
+            OtpView(navHostController = navHostController)
         }
 
-        composable(route = Screens.HomeScreen.route) {
-            HomeScreen(navHostController = navController)
+        composable(route = Screens.CardsScreen.route) {
+            CardsScreen(navHostController = navHostController)
+        }
+
+        composable(route = Screens.AddCardScreen.route) {
+            AddCardScreen(navHostController = navHostController)
         }
     }
 

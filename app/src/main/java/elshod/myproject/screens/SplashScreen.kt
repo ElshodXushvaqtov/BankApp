@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -23,6 +24,7 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import elshod.myproject.R
+import elshod.myproject.sharedPreference.MyShared
 import kotlinx.coroutines.delay
 
 @SuppressLint("StaticFieldLeak")
@@ -34,8 +36,9 @@ fun SplashScreen(navHostController: NavHostController) {
     val isPlaying by remember {
         mutableStateOf(true)
     }
-    val progress by animateLottieCompositionAsState(composition = lottieComp, isPlaying = isPlaying)
     context = LocalContext.current
+    val progress by animateLottieCompositionAsState(composition = lottieComp, isPlaying = isPlaying)
+
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,

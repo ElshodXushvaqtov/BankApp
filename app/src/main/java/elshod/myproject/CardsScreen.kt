@@ -21,35 +21,41 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import elshod.myproject.items.CardItem
 
-@Preview(showBackground = true)
 @Composable
-fun CardsScreen() {
-    Column (
+fun CardsScreen(navHostController: NavHostController) {
+    Column(
         modifier = Modifier.fillMaxSize()
     ) {
-        LazyColumn (
+        LazyColumn(
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(0.9f)
         ) {
             items(5) {
-                CardItem(cardNumber = "9987 1000 1214 1548", balance = 328000, backgroundResourceId = R.drawable.creditcardbg)
+                CardItem(
+                    cardNumber = "9987 1000 1214 1548",
+                    balance = 328000,
+                    backgroundResourceId = R.drawable.creditcardbg
+                )
             }
         }
 
-        Row (
+        Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(0.1f),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
-        ){
+        ) {
             Button(
                 onClick = {
+                    navHostController.navigate("addCard_screen")
                 },
-                modifier = Modifier.padding(horizontal = 32.dp)
+                modifier = Modifier
+                    .padding(horizontal = 32.dp)
                     .fillMaxWidth(),
                 shape = RoundedCornerShape(16.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color.LightGray),

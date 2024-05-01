@@ -1,6 +1,7 @@
 package elshod.myproject.screens
 
 import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -52,8 +53,12 @@ fun OtpView(navHostController: NavHostController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(text = "Please create a pin code:", style = TextStyle(fontSize = 20.sp))
-
+        if(data.intValue == 0) {
+            Text(text = "Please create a pin code:", style = TextStyle(fontSize = 20.sp))
+        }
+        else{
+            Text(text = "Please enter a pin code:", style = TextStyle(fontSize = 20.sp))
+        }
         BasicTextField(
             value = otpCode,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
@@ -96,15 +101,26 @@ fun OtpView(navHostController: NavHostController) {
         }
         OutlinedButton(
             onClick = {
-                sharedPreferences.saveData("user_pin", otpCode.toInt())
-                navHostController.navigate("home_screen")
+                if (data.intValue == 0) {
+                    sharedPreferences.saveData("user_pin", otpCode.toInt())
+                    navHostController.navigate("cards_screen")
+                } else {
+                    if (otpCode.toInt() == data.intValue) {
+                        navHostController.navigate("cards_screen")
+                    } else {
+                        Toast.makeText(context, "Wrong pin code", Toast.LENGTH_SHORT).show()
+                    }
+                }
             },
             modifier = Modifier
                 .width(100.dp)
                 .padding(top = 100.dp)
         ) {
-            Text(text = "Create", style = TextStyle(color = Color.Black))
-
+            if (data.intValue == 0) {
+                Text(text = "Create", style = TextStyle(color = Color.Black))
+            } else {
+                Text(text = "Enter", style = TextStyle(color = Color.Black))
+            }
         }
     }
 }
