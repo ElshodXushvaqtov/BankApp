@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -107,7 +108,8 @@ fun OtpView(navHostController: NavHostController) {
             },
             modifier = Modifier
                 .width(100.dp)
-                .padding(top = 100.dp)
+                .padding(top = 100.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
         ) {
             if (data.intValue == 0) {
                 Text(text = "Create", style = TextStyle(color = Color.Black))
