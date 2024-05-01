@@ -53,10 +53,9 @@ fun OtpView(navHostController: NavHostController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        if(data.intValue == 0) {
+        if (data.intValue == 0) {
             Text(text = "Please create a pin code:", style = TextStyle(fontSize = 20.sp))
-        }
-        else{
+        } else {
             Text(text = "Please enter a pin code:", style = TextStyle(fontSize = 20.sp))
         }
         BasicTextField(
